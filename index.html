@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scaffold with Calendar, Music Player, To-Do, Notes, Gallery, and More</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" href="images/calendar.svg">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/app.css"> 
+
+    <!-- jQuery -->
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+
+    <!-- Moment.js (required for FullCalendar) -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+
+    <!-- FullCalendar JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+    <!-- Google Fonts for Speed Reading -->
+    <link href='http://fonts.googleapis.com/css?family=Crete+Round:400,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="home-link">Home</a></li>
+                <li><a href="#" id="calendar-link">Calendar</a></li>
+                <li><a href="#" id="music-link">Music Player</a></li>
+                <li><a href="#" id="todo-link">Speed Reading</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- Home Section -->
+        <section id="home">
+            <h1>Welcome to the Web Scaffold</h1>
+            <p>This is a basic web scaffold that includes features such as a Calendar, Music Player, To-Do List, Note-Taking Section, Image Gallery, and more!</p>
+            <p>Team 4: Members - Purevdorj Davaanyam, Batbold Khishigsuren, and Andrea Monroy.</p>
+            <div class="animated-image">
+                <img src="img/team.jpg" alt="Team 4">
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section id="calendar-section" style="display:none;">
+            <div class="complete-container">
+                <!-- Calendar -->
+                <div class="calendar-container">
+                  <header class="middle">
+                    <div class="col-100 row">
+                      <!-- Left Button -->
+                      <div class="col-20 middle">
+                        <button class="left-arrow-button"></button>
+                      </div>
+                      <!-- Month Year -->
+                      <div class="col-60 middle">
+                        <h1 class="header-month-year">
+                          <span>January</span> <span>2021</span>
+                        </h1>
+                      </div>
+                      <!-- Right Button -->
+                      <div class="col-20 middle">
+                        <button class="right-arrow-button"></button>
+                      </div>
+                    </div>
+                  </header>
+            
+                  <main>
+                    <!-- Days of Week -->
+                    <div class="row center">
+                      <div class="col-14">
+                        <h6 class="day-of-week">Sun</h6>
+                      </div>
+                      <div class="col-14">
+                        <h6 class="day-of-week">Mon</h6>
+                      </div>
+                      <div class="col-14">
+                        <h6 class="day-of-week">Tue</h6>
+                      </div>
+                      <div class="col-14">
+                        <h6 class="day-of-week">Wed</h6>
+                      </div>
+                      <div class="col-14">
+                        <h6 class="day-of-week">Thu</h6>
+                      </div>
+                      <div class="col-14">
+                        <h6 class="day-of-week">Fri</h6>
+                      </div>
+                      <div class="col-14">
+                        <h6 class="day-of-week">Sat</h6>
+                      </div>
+                    </div>
+            
+                    <!-- Calendar Squares -->
+                    <div class="row">
+                      <div class="col-100 calendar-squares">
+            
+                      </div>
+                    </div>
+                  </main>
+            
+                  <footer></footer>
+                </div>
+            
+                <!-- Checklist -->
+                <div class="checklist-container max-height">
+                  <!-- Travel Modal -->
+                  <div class="travel-modal-container middle hidden">
+                    <form class="travel-modal-form">
+                      <!-- Heading -->
+                      <div class="row">
+                        <div class="col-100 modal-header">
+                          <button class="travel-button cancel dark-blue">Cancel</button>
+                          <button class="travel-button save dark-blue">Save</button>
+                        </div>
+                      </div>
+            
+                      <!-- Body -->
+                      <div class="row">
+                        <div class="col-100 travel-modal-body">
+                          <label>
+                            <h1 class="modal-heading destination-question dark-blue hidden">What city are you traveling to?</h1>
+                            <h1 class="modal-heading hometown-question dark-blue">What city do you live in?</h1>
+            
+                            <div class="modal-prompt">
+                              <img src="images/airplane.svg" alt="Airplane" class="modal-icon destination-icon hidden">
+                              <img src="images/house.svg" alt="House" class="modal-icon hometown-icon">
+                              <input required type="text" placeholder="Los Angeles" class="modal-input dark-gray">
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+            
+                  <!-- Event Modal -->
+                  <div class="event-modal-container middle hidden">
+                    <form class="event-modal-form">
+                      <!-- Heading -->
+                      <div class="row">
+                        <div class="col-100 modal-header">
+                          <button class="event-button cancel dark-blue">Cancel</button>
+                          <button class="event-button save-plus dark-blue">Save+</button>
+                          <button class="event-button save dark-blue">Save</button>
+                        </div>
+                      </div>
+            
+                      <!-- Body -->
+                      <!-- Type Buttons -->
+                      <div class="row">
+                        <div class="col-100 event-modal-buttons">
+                          <button class="event-modal-view event modal-selected">Event</button>
+                          <button class="event-modal-view birthday">Birthday</button>
+                          <button class="event-modal-view hangout">Hangout</button>
+                          <button class="event-modal-view meeting">Meeting</button>
+                        </div>
+                      </div>
+                      <!-- Inputs -->
+                      <div class="row">
+                        <div class="col-100 event-modal-body">
+                          <!-- Text -->
+                          <h1 class="modal-heading event-modal-date dark-blue">
+                            <span>January</span> <span>1</span>, <span>2021</span>
+                          </h1>
+            
+                          <label>
+                            <div class="modal-prompt event-modal-input-icons">
+                              <img src="images/calendar.svg" alt="Calendar" class="modal-icon">
+                              <img src="images/birthday.svg" alt="Birthday Present" class="modal-icon hidden">
+                              <img src="images/friends.svg" alt="Friends" class="modal-icon hidden">
+                              <img src="images/group.svg" alt="Group of People" class="modal-icon hidden">
+                              <input required type="text" placeholder="New Event" class="modal-input dark-gray">
+                            </div>
+                          </label>
+            
+                          <!-- Time -->
+                          <label>
+                            <div class="modal-prompt">
+                              <img src="images/clock.svg" alt="Clock" class="modal-icon">
+                              <div class="event-modal-time-input">
+                                <select name="hour" id="hour" class="event-modal-time">
+                                  <option value="1">01</option>
+                                  <option value="2">02</option>
+                                  <option value="3">03</option>
+                                  <option value="4">04</option>
+                                  <option value="5">05</option>
+                                  <option value="6">06</option>
+                                  <option selected value="7">07</option>
+                                  <option value="8">08</option>
+                                  <option value="9">09</option>
+                                  <option value="10">10</option>
+                                  <option value="11">11</option>
+                                  <option value="12">12</option>
+                                </select>
+                                :
+                                <select name="minute" id="minute" class="event-modal-time">
+                                  <option selected value="00">00</option>
+                                  <option value="15">15</option>
+                                  <option value="30">30</option>
+                                  <option value="45">45</option>
+                                </select>
+                                <select name="ampm" id="ampm" class="event-modal-time">
+                                  <option value="am">AM</option>
+                                  <option selected value="pm">PM</option>
+                                </select>
+                                <button class="event-modal-time modal-selected">None</button>
+            
+                              </div>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+            
+                      <div class="row event-modal-delete-div hidden">
+                        <div class="col-100 center">
+                          <button class="event-modal-delete">
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+            
+            
+                  <!-- Banner -->
+                  <div class="row middle day-banner">
+                    <!-- Date -->
+                    <div class="col-50 date-info">
+                      <h3 class="date-info-date">
+                        <span>January</span> <span>1</span>, <span>2021</span>
+                      </h3>
+                      <h6 class="date-info-holiday"> </h6>
+                      <h6 class="date-info-travel"> </h6>
+                    </div>
+                    <!-- Weather -->
+                    <div class="col-50 date-weather"></div>
+                  </div>
+            
+                  <!-- Checklist -->
+                  <div class="row checklist-height">
+                    <div class="col-100 checklist-div max-height">
+                      <ul>
+            
+                      </ul>
+                      <div class="add-buttons">
+                        <button class="add-event middle">+</button>
+                        <button class="add-travel middle">
+                          <img src="images/plane-icon.svg" alt="Plane" class="plane-icon">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+            
+                </div>
+              </div>
+        </section>
+
+        <!-- Music Player Section -->
+        <section id="music" style="display:none;">
+            <div class="player-window">
+            <h2>Music Player</h2>
+            <div class="player-container">
+                <audio id="audio-player" controls>
+                    <source id="audio-source" src="" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <div class="controls">
+                <label for="volume-control">Volume</label>
+                <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+            </div>
+
+            <div class="upload-container">
+                <label for="file-upload">Upload Your Music:</label>
+                <input type="file" id="file-upload" accept="audio/*" multiple>
+            </div>
+            </div>
+
+            <div class="playlist">
+                <h3>Playlist</h3>
+                <ul id="playlist"></ul>
+            </div>
+        </section>
+
+        <!-- To-Do List Section -->
+        <section id="todo" style="display:none;">
+            <h2>Speed Reader</h2>
+            <div id="container">
+                <textarea id="text-to-read">Wikipedia: Speed reading is the name for a number of ways to increase the speed at which a text can be read, so that the important facts of the text can still be understood. There are different ways to improve reading speed, but they are all similar. A trained reader is able to read and understand between 200 and 300 words per minute, for a text that is not very difficult to understand. Better training can improve this speed to over 1000 words per minute. Using a lot of exercise, it is possible to increase reading speed further. The best readers can read between 3000 and 4000 words per minute, and understand about 80% of them.</textarea>
+                <div id="reading-screen">
+                    <div id="word"></div>
+                    <input id="text-progress" type="range" />
+                </div>
+                <div id="options">
+                    <div class="row">
+                        <span id="wpm">Words per minute (WPM):</span>
+                        <input id="reading-speed" type="number" value="200" step="25" min="0" max="1000" />
+                        <span id="text-info"></span>
+                    </div>
+                    <div class="row">
+                        <label for="merge">Merge short words:</label>
+                        <input id="merge" type="checkbox" checked="true" />
+                    </div>
+                    <div class="row">
+                        <label for="night-mode">Night mode:</label>
+                        <input type="checkbox" id="night-mode" />
+                    </div>
+                </div>
+                <button class="btn" id="start">Read!</button>
+                <button class="btn" id="new">New text</button>
+            </div>
+            <div id="other">
+                <div id="desc">
+                    <p>Paste the text you want to speedread, and click the <em>Read!</em> button...</p>
+                    <p>Keyboard shortcuts:</p>
+                    <ul>
+                        <li><em>P</em> or <em>Space</em>: Pause/resume</li>
+                        <li><em>Left</em> arrow: Decrease speed by 25</li>
+                        <li><em>Right</em> arrow: Increase speed by 25</li>
+                        <li><em>B</em>: Go back by 10 words</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Web Scaffold Project</p>
+    </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="jquery-1.8.3.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/constructors.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
